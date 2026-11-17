@@ -1,6 +1,6 @@
 [package]
 name = "nextbot_creator"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 description = "Simple Nextbot Creator for Garry's Mod, with animated GIF support"
 license = "MIT"
@@ -10,6 +10,9 @@ anyhow = "1"
 eframe = "0.29"
 rfd = "0.15"
 image = { version = "0.25", default-features = false, features = ["gif", "png", "jpeg", "bmp"] }
+
+[build-dependencies]
+winresource = "0.1"
 
 [profile.release]
 opt-level = 3

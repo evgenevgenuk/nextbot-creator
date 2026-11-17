@@ -10,7 +10,8 @@ use generator::{ext_lower, is_gif, NextbotSpec, IMAGE_EXTS, SOUND_EXTS};
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
-const BACKGROUND_IMG: &[u8] = include_bytes!("../assets/background.jpg");
+const BACKGROUND_IMG: &[u8] = include_bytes!("../assets/background.png");
+const ICON_PNG: &[u8] = include_bytes!("../assets/icon.png");
 
 #[derive(Clone, Copy, PartialEq)]
 enum Slot {
@@ -239,7 +240,7 @@ impl eframe::App for App {
                 };
                 ui.painter().image(bg.id(), full, uv, Color32::WHITE);
             }
-            ui.painter().rect_filled(full, 0.0, Color32::from_black_alpha(110));
+            ui.painter().rect_filled(full, 0.0, Color32::from_black_alpha(150));
 
             egui::Frame::none().inner_margin(16.0).show(ui, |ui| {
                 ui.horizontal(|ui| {
@@ -312,12 +313,18 @@ impl eframe::App for App {
     }
 }
 
+fn window_icon() -> egui::IconData {
+    let img = image::load_from_memory(ICON_PNG).expect("embedded icon is a valid PNG").to_rgba8();
+    egui::IconData { width: img.width(), height: img.height(), rgba: img.into_raw() }
+}
+
 fn main() -> eframe::Result<()> {
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_inner_size([620.0, 520.0])
             .with_resizable(false)
-            .with_drag_and_drop(true),
+            .with_drag_and_drop(true)
+            .with_icon(window_icon()),
         ..Default::default()
     };
     eframe::run_native(
