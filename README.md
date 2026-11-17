@@ -4,6 +4,8 @@ Make your own Garry's Mod nextbot in a few clicks: a name, a picture, three soun
 
 A Rust (egui) rewrite of [Simple Nextbot Creator](https://gamebanana.com/tools/18165) by IRKAR.
 
+<p align="center"><img src="docs/demo.gif" alt="Nextbot Creator demo: name, animated GIF, sounds, Create" width="520"></p>
+
 ## Download
 
 Grab `NextbotCreator.exe` from [Releases](../../releases). Single file, Windows, nothing to install.
@@ -17,6 +19,10 @@ Grab `NextbotCreator.exe` from [Releases](../../releases). Single file, Windows,
 5. Press **Create**. The addon folder appears next to the exe; put it in `garrysmod/addons`.
 
 The bot shows up in the spawn menu under **NPCs > Nextbots**.
+
+## Screenshot
+
+<p align="center"><img src="docs/screenshot.png" alt="Nextbot Creator with an animated GIF loaded" width="640"></p>
 
 ## GIF support
 
